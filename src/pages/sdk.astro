@@ -1,0 +1,41 @@
+---
+import DocLayout from '../layouts/DocLayout.astro';
+const reactCode = `import { AuthProvider } from '@autional-cn/react';
+
+function App() {
+  return (
+    <AuthProvider>
+      <YourApp />
+    </AuthProvider>
+  );
+}`;
+const vueCode = `import { createApp } from 'vue';
+import AutionalPlugin from '@autional-cn/vue';
+
+const app = createApp(App);
+app.use(AutionalPlugin);
+app.mount('#app');`;
+const nodeCode = `import { verifyToken } from '@autional-cn/node';
+
+app.use(async (req, res, next) => {
+  const user = await verifyToken(req);
+  req.user = user;
+  next();
+});`;
+---
+<DocLayout title="SDK — Autional 文档" description="Autional SDK 概览 —— 面向 React、Vue、Next.js、Node.js 的 30+ 个包，以及 19 个自动生成的 API 客户端。类型安全，支持 tree-shaking。">
+  <h1 class="text-3xl font-bold mb-6">SDK</h1>
+  <p class="mb-6 text-neutral-600 dark:text-neutral-300">30+ 个包，覆盖 React、Vue、Next.js、Node.js，以及 19 个自动生成的 API 客户端。</p>
+  <h2 class="text-xl font-bold mt-8 mb-3">React</h2>
+  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">npm install @autional-cn/react @autional-cn/core</pre>
+  <p class="mb-4 text-neutral-600">为应用注入认证上下文的 Provider 组件：</p>
+  <pre class="rounded-xl bg-slate-900 p-4 text-sm overflow-x-auto mb-6"><code>{reactCode}</code></pre>
+  <h2 class="text-xl font-bold mt-8 mb-3">Vue</h2>
+  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">npm install @autional-cn/vue @autional-cn/core</pre>
+  <pre class="rounded-xl bg-slate-900 p-4 text-sm overflow-x-auto mb-6"><code>{vueCode}</code></pre>
+  <h2 class="text-xl font-bold mt-8 mb-3">Node.js</h2>
+  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">npm install @autional-cn/node</pre>
+  <pre class="rounded-xl bg-slate-900 p-4 text-sm overflow-x-auto mb-6"><code>{nodeCode}</code></pre>
+  <h2 class="text-xl font-bold mt-8 mb-3">全部包</h2>
+  <p class="mb-4 text-neutral-600">完整 SDK 目录见 <a href="https://www.autional.cn/sdk" class="text-primary-600 underline">www.autional.cn/sdk</a>，或查看 GitHub 上的源码。</p>
+</DocLayout>

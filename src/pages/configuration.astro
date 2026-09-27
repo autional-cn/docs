@@ -1,0 +1,34 @@
+---
+import DocLayout from '../layouts/DocLayout.astro';
+const vars = [
+  { name: 'JWT_SECRET', desc: '令牌签名密钥（至少 32 个字符）', required: true, default: '—' },
+  { name: 'PASSWORD_PEPPER', desc: '用于 argon2id 密码哈希的 Pepper', required: true, default: '—' },
+  { name: 'INTERNAL_API_KEY', desc: '服务间认证密钥', required: true, default: '—' },
+  { name: 'POSTGRES_HOST', desc: 'PostgreSQL 主机名', required: true, default: 'localhost' },
+  { name: 'POSTGRES_PORT', desc: 'PostgreSQL 端口', required: false, default: '5432' },
+  { name: 'POSTGRES_USER', desc: 'PostgreSQL 用户名', required: true, default: 'authuser' },
+  { name: 'POSTGRES_PASSWORD', desc: 'PostgreSQL 密码', required: true, default: 'authpassword' },
+  { name: 'REDIS_HOST', desc: 'Redis 主机名', required: false, default: 'localhost' },
+  { name: 'REDIS_PORT', desc: 'Redis 端口', required: false, default: '6379' },
+  { name: 'REDIS_PASSWORD', desc: 'Redis 密码', required: false, default: '' },
+  { name: 'RABBITMQ_HOST', desc: 'RabbitMQ 主机名', required: false, default: 'localhost' },
+  { name: 'RABBITMQ_PORT', desc: 'RabbitMQ 端口', required: false, default: '5672' },
+  { name: 'APP_ENV', desc: '运行环境：development | production', required: false, default: 'development' },
+  { name: 'MONGO_URI', desc: 'MongoDB URI（审计服务）', required: false, default: '—' },
+  { name: 'MINIO_ENDPOINT', desc: 'MinIO/S3 端点（存储服务）', required: false, default: '—' },
+];
+---
+<DocLayout title="配置 — Autional 文档" description="Autional 全部 24 个微服务的环境变量完整参考 —— 数据库、Redis、RabbitMQ、JWT、SMTP 及服务专有配置。">
+<h1 class="text-3xl font-bold mb-6">配置参考</h1>
+<p class="mb-6 text-neutral-600">Autional 全部 24 个微服务使用的环境变量。可在 <code class="bg-neutral-100 dark:bg-slate-800 px-1 rounded">.env</code> 或 <code class="bg-neutral-100 dark:bg-slate-800 px-1 rounded">configs/service/*.yaml</code> 中设置。</p>
+<table class="w-full text-sm border-collapse"><thead><tr class="border-b border-neutral-200"><th class="text-left font-medium py-2 px-2">变量</th><th class="text-left font-medium py-2 px-2">说明</th><th class="text-left font-medium py-2 px-2">必填</th><th class="text-left font-medium py-2 px-2">默认值</th></tr></thead><tbody>
+{vars.map(v => <tr class="border-b border-neutral-100"><td class="py-2 px-2 font-mono text-xs">{v.name}</td><td class="py-2 px-2">{v.desc}</td><td class="py-2 px-2">{v.required ? <span class="text-green-600">是</span> : <span class="text-neutral-400">否</span>}</td><td class="py-2 px-2 font-mono text-xs text-neutral-500">{v.default}</td></tr>)}
+</tbody></table>
+<h2 class="text-xl font-bold mt-8 mb-3">配置文件</h2>
+<p class="mb-4 text-neutral-600">每个服务从 <code class="bg-neutral-100 dark:bg-slate-800 px-1 rounded">configs/service/&#123;name&#125;.yaml</code> 读取 YAML 配置，数据库相关配置位于 <code class="bg-neutral-100 dark:bg-slate-800 px-1 rounded">configs/service/&#123;name&#125;.gorm.yaml</code>。查看全部配置文件：</p>
+<pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6"># configs/service/ directory contains:
+configs/service/identity-service.yaml
+configs/service/identity-service.gorm.yaml
+configs/service/mfa-service.yaml
+...</pre>
+</DocLayout>
