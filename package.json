@@ -1,1 +1,22 @@
-{"name":"@autional-cn/docs","private":true,"type":"module","scripts":{"dev":"astro dev --port 4432","build":"astro build","preview":"astro preview --port 4432"},"dependencies":{"@autional-cn/tailwind-preset":"0.1.0-rc","@autional-cn/tokens":"0.1.0-rc","@astrojs/sitemap":"^3.7.3","@astrojs/tailwind":"^6.0.2","astro":"^5.0.0","tailwindcss":"^3.4.0"},"devDependencies":{"@astrojs/check":"^0.9.0","typescript":"^5.8.3"}}
+{
+  "name": "@autional-cn/docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --port 4432",
+    "build": "astro build",
+    "preview": "astro preview --port 4432"
+  },
+  "dependencies": {
+    "@autional-cn/tailwind-preset": "0.1.0-rc",
+    "@autional-cn/tokens": "0.1.0-rc.2",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.0.0",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "typescript": "^5.8.3"
+  }
+}
