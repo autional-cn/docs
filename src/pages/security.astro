@@ -14,13 +14,18 @@ import DocLayout from '../layouts/DocLayout.astro';
 <tr class="border-b border-neutral-100"><td class="py-2 px-2">推送通知</td><td class="py-2 px-2">中</td><td class="py-2 px-2">1 分钟</td></tr>
 </tbody></table>
 <h2 class="text-xl font-bold mb-3 mt-8">自适应 MFA（风险引擎）</h2>
-<p class="mb-4 text-neutral-600">自适应 MFA 引擎会评估 7 类信号以判定认证风险：</p>
+<p class="mb-4 text-neutral-600">自适应 MFA 引擎会评估 10 类信号以判定认证风险：</p>
 <ul class="list-disc pl-6 space-y-1 text-sm text-neutral-600 mb-6">
-<li><strong>设备</strong> —— 可信设备、新设备、已知指纹</li>
-<li><strong>IP</strong> —— 已知位置、地理位置速度异常</li>
-<li><strong>行为</strong> —— 时段、登录频率、操作敏感度</li>
-<li><strong>频次</strong> —— 短时间内的连续尝试、暴力破解检测</li>
+<li><strong>IP 风险</strong> —— 基于来源 IP 的风险评估</li>
+<li><strong>登录失败率</strong> —— 短时间连续失败的频率检测</li>
+<li><strong>新设备</strong> —— 首次出现的设备指纹</li>
+<li><strong>位置</strong> —— 地理位置风险评估</li>
+<li><strong>非常规时段</strong> —— 与常规活跃时段不符的登录</li>
+<li><strong>新国家</strong> —— 首次出现的国家/地区</li>
+<li><strong>速度异常</strong> —— 位置速度异常（不可能旅行）检测</li>
 <li><strong>凭据泄露</strong> —— 泄露密码检测（HIBP）</li>
+<li><strong>MFA 方式变更</strong> —— MFA 方式变更检测</li>
+<li><strong>会话劫持</strong> —— 会话劫持检测</li>
 </ul>
 <h2 class="text-xl font-bold mb-3 mt-8">密码策略</h2>
 <p class="mb-4 text-neutral-600">可按租户配置的密码策略：</p>
@@ -32,7 +37,7 @@ import DocLayout from '../layouts/DocLayout.astro';
 <li>账号锁定（阈值 + 锁定时长）</li>
 </ul>
 <h2 class="text-xl font-bold mb-3 mt-8">静态加密</h2>
-<p class="mb-4 text-neutral-600">字段级 AES-256-GCM 加密并支持密钥轮换；面向国密合规提供 SM4-GCM。系统中共有 14 个加密点。</p>
+<p class="mb-4 text-neutral-600">字段级 AES-256-GCM 加密并支持密钥轮换；面向国密合规提供 SM4-GCM。</p>
 <h2 class="text-xl font-bold mb-3 mt-8">审计追踪</h2>
 <p class="mb-4 text-neutral-600">所有认证事件都会记录到不可篡改的 Merkle 哈希链审计日志中，并通过密码学验证确保防篡改完整性。</p>
 </DocLayout>

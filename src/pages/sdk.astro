@@ -9,33 +9,33 @@ function App() {
     </AuthProvider>
   );
 }`;
-const vueCode = `import { createApp } from 'vue';
-import AutionalPlugin from '@autional-cn/vue';
-
-const app = createApp(App);
-app.use(AutionalPlugin);
-app.mount('#app');`;
-const nodeCode = `import { verifyToken } from '@autional-cn/node';
-
-app.use(async (req, res, next) => {
-  const user = await verifyToken(req);
-  req.user = user;
-  next();
-});`;
+const packages = [
+  { name: '@autional-cn/react', desc: 'React SDK：认证 hooks 与组件' },
+  { name: '@autional-cn/onboard', desc: '接入脚手架 CLI：创建并接入 React / Vue / Next.js 项目' },
+  { name: '@autional-cn/ui', desc: 'React 组件库' },
+  { name: '@autional-cn/tokens', desc: '设计令牌（CSS 变量）' },
+  { name: '@autional-cn/tailwind-preset', desc: 'Tailwind 预设（品牌主题）' },
+  { name: '@autional-cn/shared', desc: '共享工具：API client、认证、类型与 hooks' },
+  { name: '@autional-cn/eslint-config', desc: 'ESLint 共享配置' },
+  { name: '@autional-cn/tsconfig', desc: 'TypeScript 共享配置' },
+];
 ---
-<DocLayout title="SDK — Autional 文档" description="Autional SDK 概览 —— 面向 React、Vue、Next.js、Node.js 的 30+ 个包，以及 19 个自动生成的 API 客户端。类型安全，支持 tree-shaking。">
+<DocLayout title="SDK — Autional 文档" description="Autional 的 npm 包 —— @autional-cn 作用域下的 React SDK、接入脚手架与设计系统 / 工程配置包。">
   <h1 class="text-3xl font-bold mb-6">SDK</h1>
-  <p class="mb-6 text-neutral-600 dark:text-neutral-300">30+ 个包，覆盖 React、Vue、Next.js、Node.js，以及 19 个自动生成的 API 客户端。</p>
+  <p class="mb-6 text-neutral-600 dark:text-neutral-300">Autional 在 npm 上提供 <code class="bg-neutral-100 px-1 rounded">@autional-cn</code> 作用域下的 8 个包：React SDK、接入脚手架，以及设计系统与工程配置包。</p>
   <h2 class="text-xl font-bold mt-8 mb-3">React</h2>
-  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">npm install @autional-cn/react @autional-cn/core</pre>
+  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">npm install @autional-cn/react</pre>
   <p class="mb-4 text-neutral-600">为应用注入认证上下文的 Provider 组件：</p>
   <pre class="rounded-xl bg-slate-900 p-4 text-sm overflow-x-auto mb-6"><code>{reactCode}</code></pre>
-  <h2 class="text-xl font-bold mt-8 mb-3">Vue</h2>
-  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">npm install @autional-cn/vue @autional-cn/core</pre>
-  <pre class="rounded-xl bg-slate-900 p-4 text-sm overflow-x-auto mb-6"><code>{vueCode}</code></pre>
-  <h2 class="text-xl font-bold mt-8 mb-3">Node.js</h2>
-  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">npm install @autional-cn/node</pre>
-  <pre class="rounded-xl bg-slate-900 p-4 text-sm overflow-x-auto mb-6"><code>{nodeCode}</code></pre>
+  <h2 class="text-xl font-bold mt-8 mb-3">接入脚手架</h2>
+  <p class="mb-4 text-neutral-600">交互式创建并接入一个新项目：</p>
+  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">npx @autional-cn/onboard</pre>
   <h2 class="text-xl font-bold mt-8 mb-3">全部包</h2>
-  <p class="mb-4 text-neutral-600">完整 SDK 目录见 <a href="https://www.autional.cn/sdk" class="text-primary-600 underline">www.autional.cn/sdk</a>，或查看 GitHub 上的源码。</p>
+  <table class="w-full text-sm mb-6 border-collapse">
+    <thead><tr class="border-b border-neutral-200"><th class="text-left font-medium py-2 px-2">包</th><th class="text-left font-medium py-2 px-2">说明</th></tr></thead>
+    <tbody>
+      {packages.map(p => <tr class="border-b border-neutral-100"><td class="py-2 px-2 font-mono text-xs">{p.name}</td><td class="py-2 px-2">{p.desc}</td></tr>)}
+    </tbody>
+  </table>
+  <p class="mb-4 text-neutral-600">完整 SDK 目录见 <a href="https://www.autional.cn/sdk" class="text-primary-600 underline">www.autional.cn/sdk</a>，源码见 <a href="https://github.com/autional-cn" class="text-primary-600 underline">GitHub 上的 autional-cn 组织</a>。</p>
 </DocLayout>

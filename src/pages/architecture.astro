@@ -1,9 +1,9 @@
 ---
 import DocLayout from '../layouts/DocLayout.astro';
 ---
-<DocLayout title="架构 — Autional 文档" description="Autional 架构总览 —— 采用 4 层设计的 24 个 Go 微服务，并配备横切的安全、可观测性与服务网格能力。">
+<DocLayout title="架构 — Autional 文档" description="Autional 架构总览 —— 采用 4 层设计的 27 个 Go 微服务，并配备横切的安全与可观测能力。">
 <h1 class="text-3xl font-bold mb-6">架构</h1>
-<p class="mb-6 text-neutral-600">Autional 由 24 个可独立部署的 Go 微服务组成，采用 4 层架构并配备一个横切层。</p>
+<p class="mb-6 text-neutral-600">Autional 由 27 个可独立部署的 Go 微服务组成，采用 4 层架构并配备一个横切层。</p>
 
 <h2 class="text-xl font-bold mt-8 mb-3">第 1 层：基础层</h2>
 <table class="w-full text-sm mb-6 border-collapse"><thead><tr class="border-b border-neutral-200"><th class="text-left font-medium py-2">层</th><th class="text-left font-medium py-2">模块</th><th class="text-left font-medium py-2">用途</th></tr></thead><tbody>
@@ -22,12 +22,12 @@ import DocLayout from '../layouts/DocLayout.astro';
 <p class="mb-4 text-neutral-600">共享领域模型位于 <code class="bg-neutral-100 px-1 rounded">micro-share/</code>，中间件位于 <code class="bg-neutral-100 px-1 rounded">micro-middleware/</code>。</p>
 <ul class="list-disc pl-6 space-y-1 text-sm text-neutral-600 mb-6">
 <li><strong>middleware：</strong>认证（JWT/IP 白名单）、应用启动引导、gRPC 工厂、错误处理、审计、租户解析</li>
-<li><strong>shared：</strong>领域事件（600+ 种事件类型）、RBAC、ABAC、ReBAC、PIM、合规、钱包、计费、通知</li>
+<li><strong>shared：</strong>领域事件（550+ 种事件类型）、RBAC、ABAC、ReBAC、PIM、合规、钱包、计费、通知</li>
 </ul>
 
-<h2 class="text-xl font-bold mt-8 mb-3">第 4 层：业务服务（24 个）</h2>
+<h2 class="text-xl font-bold mt-8 mb-3">第 4 层：业务服务（27 个）</h2>
 <div class="grid sm:grid-cols-2 gap-3 mb-6">
-{['Identity (11001)','Profile (11002)','Tenant (11003)','Session (11004)','MFA (11005)','OAuth (11006)','Wallet (11011)','Point (11012)','Audit (11013)','Notification (11014)','Communication (11015)','Storage (11016)','Billing (11017)','Compliance (11018)','Status (11019)','Secret (11020)','SAML (11021)','Pay (11022)','Thirdparty (11023)','Verification (11024)','RBAC (11025)','Gateway (11080)','Hash-standard (gRPC)','Hash-sm (gRPC)'].map(s => <div class="rounded-lg border border-neutral-200 dark:border-neutral-800 p-3 text-sm font-mono">{s}</div>)}
+{['Identity (11001)','Profile (11002)','Tenant (11003)','Session (11004)','MFA (11005)','OAuth (11006)','Config (11007)','Wallet (11011)','Point (11012)','Audit (11013)','Notification (11014)','Communication (11015)','Storage (11016)','Billing (11017)','Compliance (11018)','Status (11019)','Secret (11020)','SAML (11021)','Pay (11022)','Thirdparty (11023)','Verification (11024)','RBAC (11025)','Captcha3D (11028)','Stream (11029)','Gateway (11080)','Hash-standard (gRPC)','Hash-sm (gRPC)'].map(s => <div class="rounded-lg border border-neutral-200 dark:border-neutral-800 p-3 text-sm font-mono">{s}</div>)}
 </div>
 
 <h2 class="text-xl font-bold mt-8 mb-3">横切层</h2>

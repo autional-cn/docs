@@ -16,7 +16,7 @@ import DocLayout from '../layouts/DocLayout.astro';
 <p class="mb-4 text-neutral-600">传输完成后，密码使用 <strong>argon2id</strong>（KDF）+ <strong>PASSWORD_PEPPER</strong> 进行哈希。系统同时保留 bcrypt 兜底方案以兼容存量数据，并支持按租户选择算法。</p>
 <h2 class="text-xl font-bold mb-3 mt-8">会话与令牌流程</h2>
 <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6">User Login → POST /auth/login
-  ├─ Returns: access_token (JWT, 30min) + refresh_token (24h)
+  ├─ Returns: access_token (JWT, 5min) + refresh_token (24h)
   ├─ Access token: sent as Authorization Bearer header
   ├─ Refresh: POST /auth/refresh → new token pair
   └─ Logout: POST /auth/logout → revoke tokens, blacklist</pre>

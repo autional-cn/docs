@@ -5,7 +5,7 @@ const steps = [
   {
     title: '克隆并启动平台',
     body: '启动本地整套环境，随后即可浏览每个服务、网关路由与运行依赖。',
-    command: `# See docs.autional.cn/configuration for setup instructions
+    command: `# 启动本地整套环境（中间件 + 全部 27 个服务），首次约需 2-3 分钟
 docker compose -f docker-compose.infra.yml -f docker-compose.monolith.yml up -d`,
   },
   {
@@ -16,14 +16,14 @@ open http://localhost:11080/docs/`,
   },
   {
     title: '登录管理控制台',
-    body: '使用默认的本地凭据登录，即可在界面中查看租户、认证流程、策略与配置。',
+    body: '使用示例账号登录（仅限本地演示，请勿用于生产），即可在界面中查看租户、认证流程、策略与配置。',
     command: `http://localhost:11080
-admin@admin.com`,
+admin@admin.com / admin123`,
   },
 ];
 
 const links = [
-  ['架构', '/architecture', '了解 4 层架构、共享层与 24 个微服务。'],
+  ['架构', '/architecture', '了解 4 层架构、共享层与 27 个微服务。'],
   ['安全指南', '/security', '了解 MFA、审计、加密与生产环境加固方案。'],
   ['API 参考', '/api', '查看网关文档、服务路径与 OpenAPI 入口。'],
   ['部署', '/deployment', '从本地开发过渡到可重复的生产部署。'],

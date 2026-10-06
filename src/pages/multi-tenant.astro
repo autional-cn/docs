@@ -5,10 +5,10 @@ import DocLayout from '../layouts/DocLayout.astro';
 <h1 class="text-3xl font-bold mb-6">多租户指南</h1>
 <p class="mb-6 text-neutral-600">Autional 从第一天起就为 B2B SaaS 多租户而设计，每项功能天然具备租户感知能力。</p>
 <h2 class="text-xl font-bold mb-3 mt-8">三层隔离</h2>
-<table class="w-full text-sm mb-6 border-collapse"><thead><tr class="border-b border-neutral-200"><th class="text-left font-medium py-2 px-2">层级</th><th class="text-left font-medium py-2 px-2">强制手段</th><th class="text-left font-medium py-2 px-2">CI 检查</th></tr></thead><tbody>
-<tr class="border-b border-neutral-100"><td class="py-2 px-2"><strong>1. Schema</strong></td><td class="py-2 px-2">每张表都有 tenant_id 列</td><td class="py-2">✅</td></tr>
-<tr class="border-b border-neutral-100"><td class="py-2 px-2"><strong>2. Repository</strong></td><td class="py-2 px-2">每个查询都带 tenant_id 的 WHERE 条件</td><td class="py-2">✅</td></tr>
-<tr class="border-b border-neutral-100"><td class="py-2 px-2"><strong>3. Handler</strong></td><td class="py-2 px-2">tenant_id 取自认证上下文，绝不取自请求体</td><td class="py-2">✅</td></tr>
+<table class="w-full text-sm mb-6 border-collapse"><thead><tr class="border-b border-neutral-200"><th class="text-left font-medium py-2 px-2">层级</th><th class="text-left font-medium py-2 px-2">强制手段</th></tr></thead><tbody>
+<tr class="border-b border-neutral-100"><td class="py-2 px-2"><strong>1. Schema</strong></td><td class="py-2 px-2">每张表都有 tenant_id 列</td></tr>
+<tr class="border-b border-neutral-100"><td class="py-2 px-2"><strong>2. Repository</strong></td><td class="py-2 px-2">每个查询都带 tenant_id 的 WHERE 条件</td></tr>
+<tr class="border-b border-neutral-100"><td class="py-2 px-2"><strong>3. Handler</strong></td><td class="py-2 px-2">tenant_id 取自认证上下文，绝不取自请求体</td></tr>
 </tbody></table>
 <h2 class="text-xl font-bold mb-3 mt-8">租户配置</h2>
 <p class="mb-4 text-neutral-600">每个租户都可以独立配置：</p>
