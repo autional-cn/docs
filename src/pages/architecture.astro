@@ -19,7 +19,7 @@ import DocLayout from '../layouts/DocLayout.astro';
 </tbody></table>
 
 <h2 class="text-xl font-bold mt-8 mb-3">第 3 层：领域层</h2>
-<p class="mb-4 text-neutral-600">共享领域模型位于 <code class="bg-neutral-100 px-1 rounded">micro-share/</code>，中间件位于 <code class="bg-neutral-100 px-1 rounded">micro-middleware/</code>。</p>
+<p class="mb-4 text-neutral-600">共享领域模型位于 <code class="bg-neutral-100 px-1 rounded-xs">micro-share/</code>，中间件位于 <code class="bg-neutral-100 px-1 rounded-xs">micro-middleware/</code>。</p>
 <ul class="list-disc pl-6 space-y-1 text-sm text-neutral-600 mb-6">
 <li><strong>middleware：</strong>认证（JWT/IP 白名单）、应用启动引导、gRPC 工厂、错误处理、审计、租户解析</li>
 <li><strong>shared：</strong>领域事件（550+ 种事件类型）、RBAC、ABAC、ReBAC、PIM、合规、钱包、计费、通知</li>
@@ -31,5 +31,5 @@ import DocLayout from '../layouts/DocLayout.astro';
 </div>
 
 <h2 class="text-xl font-bold mt-8 mb-3">横切层</h2>
-<p class="mb-4 text-neutral-600"><code class="bg-neutral-100 px-1 rounded">cross/registry/</code> —— 端口、错误码、事件名、表名、RBAC 权限。所有服务都依赖该层。</p>
+<p class="mb-4 text-neutral-600"><code class="bg-neutral-100 px-1 rounded-xs">cross/registry/</code> —— 端口、错误码、事件名、表名、RBAC 权限。所有服务都依赖该层。</p>
 </DocLayout>
