@@ -12,11 +12,11 @@ docker compose -f docker-compose.infra.yml -f docker-compose.monolith.yml up -d<
   <table class="w-full text-sm mb-6 border-collapse">
     <thead><tr class="border-b border-neutral-200"><th class="text-left font-medium py-2">变量</th><th class="text-left font-medium py-2">说明</th><th class="text-left font-medium py-2">必填</th></tr></thead>
     <tbody>
-      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">JWT_SECRET</td><td class="py-2">令牌签名密钥（至少 32 个字符）</td><td class="py-2 text-green-600">是</td></tr>
-      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">PASSWORD_PEPPER</td><td class="py-2">用于密码哈希的 Pepper</td><td class="py-2 text-green-600">是</td></tr>
-      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">INTERNAL_API_KEY</td><td class="py-2">服务间认证</td><td class="py-2 text-green-600">是</td></tr>
-      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">POSTGRES_PASSWORD</td><td class="py-2">PostgreSQL 密码</td><td class="py-2 text-green-600">是</td></tr>
-      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">REDIS_PASSWORD</td><td class="py-2">Redis 密码</td><td class="py-2 text-green-600">是</td></tr>
+      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">JWT_SECRET</td><td class="py-2">令牌签名密钥（至少 32 个字符）</td><td class="py-2 text-success-text">是</td></tr>
+      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">PASSWORD_PEPPER</td><td class="py-2">用于密码哈希的 Pepper</td><td class="py-2 text-success-text">是</td></tr>
+      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">INTERNAL_API_KEY</td><td class="py-2">服务间认证</td><td class="py-2 text-success-text">是</td></tr>
+      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">POSTGRES_PASSWORD</td><td class="py-2">PostgreSQL 密码</td><td class="py-2 text-success-text">是</td></tr>
+      <tr class="border-b border-neutral-100"><td class="py-2 font-mono">REDIS_PASSWORD</td><td class="py-2">Redis 密码</td><td class="py-2 text-success-text">是</td></tr>
     </tbody>
   </table>
   <h2 class="text-xl font-bold mt-8 mb-3">SSL / TLS</h2>
