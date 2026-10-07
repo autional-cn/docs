@@ -5,7 +5,7 @@ import DocLayout from '../layouts/DocLayout.astro';
   <h1 class="text-3xl font-bold mb-6">部署</h1>
   <p class="mb-6 text-neutral-600 dark:text-neutral-300">使用 Docker Compose 编排在生产环境部署 Autional。</p>
   <h2 class="text-xl font-bold mt-8 mb-3">Docker Compose</h2>
-  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6"># 生产环境：使用独立的 infra + services compose 文件
+  <pre class="rounded-xl bg-slate-900 text-syntax-plain p-4 text-sm overflow-x-auto mb-6"># 生产环境：使用独立的 infra + services compose 文件
 docker compose -f docker-compose.infra.yml -f docker-compose.monolith.yml up -d</pre>
   <h2 class="text-xl font-bold mt-8 mb-3">配置</h2>
   <p class="mb-4 text-neutral-600">生产环境需要设置的关键环境变量：</p>
@@ -23,6 +23,6 @@ docker compose -f docker-compose.infra.yml -f docker-compose.monolith.yml up -d<
   <p class="mb-4 text-neutral-600">生产环境请使用 Let's Encrypt 或你自己的 CA。网关 nginx 负责 SSL 终止。参考用的自签名证书见 <code class="bg-neutral-100 px-1 rounded-xs">docker/nginx/certs/</code>。</p>
   <h2 class="text-xl font-bold mt-8 mb-3">监控</h2>
   <p class="mb-4 text-neutral-600">内置 Prometheus + Grafana 仪表盘，用于监控全部 27 个服务；告警路由由 Alertmanager 处理；链路追踪通过 Jaeger 采集 OpenTelemetry 数据。</p>
-  <pre class="rounded-xl bg-slate-900 text-green-400 p-4 text-sm overflow-x-auto mb-6"># 监控栈随整套环境编排一并启动（docker-compose.dev-cloud.yml 含 Prometheus / Grafana / Alertmanager / Jaeger）
+  <pre class="rounded-xl bg-slate-900 text-syntax-plain p-4 text-sm overflow-x-auto mb-6"># 监控栈随整套环境编排一并启动（docker-compose.dev-cloud.yml 含 Prometheus / Grafana / Alertmanager / Jaeger）
 # Grafana: http://localhost:20300</pre>
 </DocLayout>
