@@ -1,12 +1,14 @@
 ---
 import DocLayout from '../layouts/DocLayout.astro';
-const reactCode = `import { AuthProvider } from '@autional/react';
+const reactCode = `import { AutionalProvider } from '@autional/react';
+
+const config = { appId: 'my-app', issuer: 'https://api.autional.cn' };
 
 function App() {
   return (
-    <AuthProvider>
+    <AutionalProvider config={config}>
       <YourApp />
-    </AuthProvider>
+    </AutionalProvider>
   );
 }`;
 const packages = [
